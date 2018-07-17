@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=3
+
+[application]
+
+config/name="gdstats"
+run/main_scene="res://demo/Main.tscn"
+
+[autoload]
+
+ProbabilityServer="*res://gdstats.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[gdnative]
+
+singletons=[  ]
+
+[rendering]
+
+environment/default_clear_color=Color( 0.152344, 0.152344, 0.152344, 1 )

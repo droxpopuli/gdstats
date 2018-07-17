@@ -4,7 +4,7 @@ gdstats currently provides a small set of common distributions all implemented i
 
 ![Image of Example Project](https://i.imgur.com/39pPFmh.png)
 
-Discrete
+Discrete (integers)
 --------
 
 - `randi_bernoulli(p)`, return 1 or 0 based on probability p
@@ -46,7 +46,7 @@ The following table gives values of c to approximate a given event's probability
 |         40%         | 0.15798 |                     |         |
 
 
-Continuous
+Continuous (floats)
 ----------
 
 - `randf_uniform(a, b)`, return a uniformly random value in range a to b

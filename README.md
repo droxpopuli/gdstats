@@ -2,6 +2,8 @@
 
 gdstats currently provides a small set of common distributions all implemented in fast forms usually via inversion techniques:
 
+![Image of Example Project](https://i.imgur.com/39pPFmh.png)
+
 Discrete
 --------
 

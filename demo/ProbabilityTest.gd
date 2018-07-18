@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 onready var results = get_node("Main/container/results")
 
@@ -8,9 +8,18 @@ var result_values = {}
 var ready = false
 var result_children = []
 var trials
-const MAX_BARS = 100
+var MAX_BARS = 100
+
+var grad = Gradient.new()
 
 func _ready():
+	grad.set_color(0, "FFE30D")
+	grad.set_color(1, "E8720C")
+	grad.add_point(2, "FF004F")
+	grad.add_point(3, "570CE8")
+	grad.add_point(4, "17B3FF")
+	print(to_json(grad.get_offsets()))
+	#grad.add_point(100, "17B3FF")
 	set_process(true)
 
 func _process(delta):
@@ -22,22 +31,47 @@ func _process(delta):
 	
 	var working_results = result_values.duplicate()
 	
+	var total_value = 0
+	var total_event_thus = 0
+	var mode = 0
+	
 	for result in working_results.keys():
+		total_value += working_results[result] * result
+		total_event_thus += working_results[result]
+		
 		if result > max_result:
 			max_result = result
 		if working_results[result] > max_val:
 			max_val = working_results[result]
+			mode = result
+			
+	var standard_deviation = 0
+	for result in working_results.keys():
+		standard_deviation += pow(result, 2) * working_results[result]/total_event_thus
+			
+	var average = clamp(round(total_value/total_event_thus), 0, result_children.size()-1)
+	standard_deviation -= pow(average, 2)
+	standard_deviation = sqrt(standard_deviation)
+			
 	if max_result + 1 > result_children.size():
 		for i in range(max_result + 1 - result_children.size()):
 			add_new_bar()
 	
 	for result in working_results.keys():
 		result_children[result].set_observed(float(working_results[result]) / float(trials), working_results[result], float(max_val))
+		if result == average:
+			result_children[result].modulate = Color(1, .2, 1)
+			result_children[result].hint_tooltip = "Mean\n" + result_children[result].hint_tooltip
+		elif result == mode:
+			result_children[result].modulate = Color(1, 1, .2)
+			result_children[result].hint_tooltip = "Mode\n" + result_children[result].hint_tooltip
+		else:
+			var sd = round(abs(result - average)/ standard_deviation)
+			result_children[result].modulate = Color(1-0.2*sd, 1-0.2*sd, 1-0.2*sd)
 
 func add_new_bar():
 	var bar = preload("probability_bar.tscn").instance()
 	bar.set_title(result_children.size())
-	print(String(result_children.size()))
 	result_children.append(bar)
 	results.add_child(bar)
 	bar.normalizing = get_node("Main/Control/CheckButton").pressed
@@ -51,6 +85,7 @@ func cancel():
 
 func start_rand():
 	cancel()
+	MAX_BARS = round(rect_size.x/7)
 	var arg_1 = float(get_node("Main/Control/arg_1").text)
 	var arg_2 = float(get_node("Main/Control/arg_2").text)
 	var trial_count = int(get_node("Main/Control/trial_count").text)
@@ -106,6 +141,7 @@ func rand_thread(userdata):
 		if !result_values.has(value):
 			result_values[value] = 0
 		result_values[value] += 1
+	print(to_json(result_values))
 		
 func _on_CheckButton_toggled(value):
 	for i in get_tree().get_nodes_in_group("bar"):

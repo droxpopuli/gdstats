@@ -4,33 +4,33 @@
 
 [sub_resource type="GDScript" id=1]
 
-script/source = "extends VBoxContainer
+script/source = "extends TextureProgress
 
-var value
+var title_value
 var normalizing = true
 
 var text_val = 0
-var max_value = 0
-var chance
+var max_val = 0
+var chance = 0
 
 func _process(delta):
-	if normalizing && max_value != 0:
-		get_node(\"observed\").value = text_val/max_value
+	if normalizing && max_val != 0:
+		value = text_val/max_val
 	elif text_val != 0:
-		get_node(\"observed\").value = chance
+		value = chance
 	else:
-		get_node(\"observed\").value = 0
+		value = 0
 		
-func set_observed(result, text, max_val):
+func set_observed(result, text, n_max_val):
 	text_val = text
-	max_value = max_val
+	max_val = n_max_val
 	chance = result
-	get_node(\"observed\").hint_tooltip = \"Value: \" + value + \"\\nChance: \" + String(result) + \"\\nCount: \" + String(text)
+	hint_tooltip = \"Value: \" + title_value + \"\\nChance: \" + String(result) + \"\\nCount: \" + String(text)
 	
 func set_title(text):
-	value = String(text)"
+	title_value = String(text)"
 
-[node name="event" type="VBoxContainer" index="0" groups=[
+[node name="event" type="TextureProgress" groups=[
 "bar",
 ]]
 
@@ -38,24 +38,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 0
-script = SubResource( 1 )
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="observed" type="TextureProgress" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -76,6 +58,7 @@ fill_mode = 3
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
-_sections_unfolded = [ "Percent", "Size Flags", "Textures" ]
+script = SubResource( 1 )
+_sections_unfolded = [ "Size Flags", "Textures" ]
 
 

@@ -8,18 +8,9 @@ var result_values = {}
 var ready = false
 var result_children = []
 var trials
-var MAX_BARS = 100
-
-var grad = Gradient.new()
+var MAX_BARS = 100000000
 
 func _ready():
-	grad.set_color(0, "FFE30D")
-	grad.set_color(1, "E8720C")
-	grad.add_point(2, "FF004F")
-	grad.add_point(3, "570CE8")
-	grad.add_point(4, "17B3FF")
-	print(to_json(grad.get_offsets()))
-	#grad.add_point(100, "17B3FF")
 	set_process(true)
 
 func _process(delta):
@@ -85,9 +76,11 @@ func cancel():
 
 func start_rand():
 	cancel()
-	MAX_BARS = round(rect_size.x/7)
+	MAX_BARS = round(rect_size.x/6)
 	var arg_1 = float(get_node("Main/Control/arg_1").text)
 	var arg_2 = float(get_node("Main/Control/arg_2").text)
+	var arg_3 = float(get_node("Main/Control/arg_3").text)
+	var arg_4 = float(get_node("Main/Control/arg_4").text)
 	var trial_count = int(get_node("Main/Control/trial_count").text)
 	var dist = get_node("Main/Control/dist_menu").selected
 	
@@ -103,14 +96,17 @@ func start_rand():
 	
 	add_new_bar()
 		
-	thread.start(self, "rand_thread", [dist, arg_1, arg_2, trial_count])
+	thread.start(self, "rand_thread", [dist, arg_1, arg_2, arg_3, arg_4, trial_count])
+	#rand_thread([dist, arg_1, arg_2, arg_3, arg_4, trial_count])
 
 func rand_thread(userdata):
 	print(to_json(userdata))
 	var dist = userdata[0]
 	var arg_1 = userdata[1]
 	var arg_2 = userdata[2]
-	var trial_count = userdata[3]
+	var arg_3 = userdata[3]
+	var arg_4 = userdata[4]
+	var trial_count = userdata[5]
 
 	for i in range(trial_count):
 		if ready:
@@ -136,6 +132,8 @@ func rand_thread(userdata):
 				val = int(round(ProbabilityServer.randf_gaussian())) + 25
 			8:
 				val = ProbabilityServer.randi_pseudo(arg_1)
+			9:
+				val = ProbabilityServer.randi_seige(arg_1, arg_2, arg_3, arg_4)
 		
 		var value = clamp(val, 0, MAX_BARS-1)
 		if !result_values.has(value):

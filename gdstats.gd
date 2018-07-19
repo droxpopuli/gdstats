@@ -59,6 +59,18 @@ func randi_pseudo(c):
 		curr += c
 		
 	return trial
+	
+func randi_seige(w, c_0, c_win, c_lose):
+	var c = c_0
+	var trials = 0
+	while(true):
+		trials += 1
+		if randi_bernoulli(w) == 1:
+			c += c_win
+			if randi_bernoulli(c) == 1:
+				return trials
+		else:
+			c += c_lose
 
 func randf_uniform(a, b):
 	return randf()*((b+0.01) - (a+0.01)) + a

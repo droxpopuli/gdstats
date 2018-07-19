@@ -42,7 +42,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1004.0
+margin_right = 1736.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 30 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -77,7 +77,7 @@ group = null
 text = "bernoulli(p)"
 flat = false
 align = 0
-items = [ "bernoulli(p)", null, false, -1, null, "binomial(p, n)", null, false, -1, null, "geometric(p)", null, false, -1, null, "poisson(lambda)", null, false, -1, null, "uniform(a, b)", null, false, -1, null, "exponential(lambda)", null, false, -1, null, "erlang(k, lambda)", null, false, -1, null, "gaussian/normal", null, false, -1, null, "pseudo_random(c)", null, false, -1, null ]
+items = [ "bernoulli(p)", null, false, -1, null, "binomial(p, n)", null, false, -1, null, "geometric(p)", null, false, -1, null, "poisson(lambda)", null, false, -1, null, "uniform(a, b)", null, false, -1, null, "exponential(lambda)", null, false, -1, null, "erlang(k, lambda)", null, false, -1, null, "gaussian/normal", null, false, -1, null, "pseudo_random(c)", null, false, -1, null, "seige(w, c_0, c_win, c_lose)", null, false, -1, null ]
 selected = 0
 _sections_unfolded = [ "Size Flags" ]
 
@@ -109,15 +109,15 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 180.0
-margin_right = 295.0
+margin_right = 410.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 115, 0 )
+rect_min_size = Vector2( 50, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 3
 size_flags_vertical = 7
 text = "0.5"
 readonly = false
@@ -142,9 +142,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 299.0
+margin_left = 414.0
 margin_top = 13.0
-margin_right = 355.0
+margin_right = 470.0
 margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -163,16 +163,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 359.0
-margin_right = 474.0
+margin_left = 474.0
+margin_right = 704.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 115, 0 )
+rect_min_size = Vector2( 50, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 3
 size_flags_vertical = 7
 text = "0"
 readonly = false
@@ -191,32 +191,125 @@ caret_blink = false
 caret_blink_speed = 0.65
 caret_moving_by_right_click = true
 
-[node name="spacer" type="Control" parent="Main/Control" index="5"]
+[node name="Label5" type="Label" parent="Main/Control" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 478.0
-margin_right = 560.0
-margin_bottom = 40.0
+margin_left = 708.0
+margin_top = 13.0
+margin_right = 764.0
+margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Param 3:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="arg_3" type="TextEdit" parent="Main/Control" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 768.0
+margin_right = 998.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 50, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-_sections_unfolded = [ "Grow Direction", "Size Flags" ]
+size_flags_vertical = 7
+text = "0"
+readonly = false
+highlight_current_line = false
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+override_selected_font_color = false
+context_menu_enabled = true
+smooth_scrolling = false
+v_scroll_speed = 80.0
+hiding_enabled = 0
+wrap_lines = false
+caret_block_mode = false
+caret_blink = false
+caret_blink_speed = 0.65
+caret_moving_by_right_click = true
 
-[node name="Label4" type="Label" parent="Main/Control" index="6"]
+[node name="Label6" type="Label" parent="Main/Control" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 564.0
+margin_left = 1002.0
 margin_top = 13.0
-margin_right = 681.0
+margin_right = 1058.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Param 3:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="arg_4" type="TextEdit" parent="Main/Control" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1062.0
+margin_right = 1292.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 50, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "0"
+readonly = false
+highlight_current_line = false
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+override_selected_font_color = false
+context_menu_enabled = true
+smooth_scrolling = false
+v_scroll_speed = 80.0
+hiding_enabled = 0
+wrap_lines = false
+caret_block_mode = false
+caret_blink = false
+caret_blink_speed = 0.65
+caret_moving_by_right_click = true
+
+[node name="Label4" type="Label" parent="Main/Control" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1296.0
+margin_top = 13.0
+margin_right = 1413.0
 margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -229,14 +322,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="CheckButton" type="CheckButton" parent="Main/Control" index="7"]
+[node name="CheckButton" type="CheckButton" parent="Main/Control" index="10"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 685.0
-margin_right = 761.0
+margin_left = 1417.0
+margin_right = 1493.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -252,15 +345,15 @@ group = null
 flat = false
 align = 0
 
-[node name="Label3" type="Label" parent="Main/Control" index="8"]
+[node name="Label3" type="Label" parent="Main/Control" index="11"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 765.0
+margin_left = 1497.0
 margin_top = 13.0
-margin_right = 837.0
+margin_right = 1569.0
 margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -273,14 +366,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="trial_count" type="TextEdit" parent="Main/Control" index="9"]
+[node name="trial_count" type="TextEdit" parent="Main/Control" index="12"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 841.0
-margin_right = 966.0
+margin_left = 1573.0
+margin_right = 1698.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 125, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -308,14 +401,14 @@ caret_blink_speed = 0.65
 caret_moving_by_right_click = true
 _sections_unfolded = [ "Rect" ]
 
-[node name="go_button" type="Button" parent="Main/Control" index="10"]
+[node name="go_button" type="Button" parent="Main/Control" index="13"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 970.0
-margin_right = 1004.0
+margin_left = 1702.0
+margin_right = 1736.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -339,7 +432,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 44.0
-margin_right = 1004.0
+margin_right = 1736.0
 margin_bottom = 580.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -351,7 +444,6 @@ scroll_horizontal_enabled = true
 scroll_horizontal = 0
 scroll_vertical_enabled = true
 scroll_vertical = 0
-scroll_deadzone = 0
 _sections_unfolded = [ "Scroll", "Size Flags" ]
 
 [node name="results" type="HBoxContainer" parent="Main/container" index="0"]
@@ -360,7 +452,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1004.0
+margin_right = 1736.0
 margin_bottom = 536.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
